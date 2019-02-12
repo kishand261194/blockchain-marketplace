@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  devise :timeoutable, :timeout_in => 10.minutes
+  has_many :products
 
   def set_default_role
     self.role ||= :user

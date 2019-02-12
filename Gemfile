@@ -10,6 +10,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
+gem 'pry'
+#gem 'bootstrap-sass', '~> 3.3.5'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -23,7 +25,7 @@ group :development do
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'administrate'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.3'
 gem 'bourbon'
 gem 'devise'
 gem 'high_voltage'
