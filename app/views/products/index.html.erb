@@ -1,4 +1,5 @@
 <body class='particles-header'>
+<center><h3> Happy Shopping !! <h3><center>
 <% @products.in_groups_of(4, false).each do |group| %>
   <div class='row',style="background-color: #FFF;color: #9d9d9d;">
     <% group.each do |product| %>
@@ -10,6 +11,7 @@
           <div><%= sanitize(product.status) %></div>
           <div><%= number_to_currency(product.price) %></div>
           <%= button_to 'Add to Cart', products_path, class: 'btn btn-info btn-sm', remote: true %>
+          <div> Seller - <%= sanitize(product.user.name) %></div>
         </div>
       </div>
     </div>

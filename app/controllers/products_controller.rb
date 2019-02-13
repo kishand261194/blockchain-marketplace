@@ -27,8 +27,10 @@ class ProductsController < ApplicationController
       @product = current_user.products.build(product_params)
       @product.save!
       flash[:success] = "Successfully Added new Product"
+      redirect_to products_path
     rescue => e
       flash[:danger] = e.message
+      redirect_to new_products_path
     end
   end
 
@@ -37,6 +39,7 @@ class ProductsController < ApplicationController
       @products = Product.find(params[:id])
       @products.update_attributes!(product_params)
       flash[:notice] = "Update was successfully!"
+      redirect_to products_path
     rescue => e
       flash[:danger] = e.message
     end
@@ -45,6 +48,7 @@ class ProductsController < ApplicationController
   def destroy
     @products = Product.find(params[:id])
     @products.destroy
+    redirect_to mypage_path
   end
 
   def myindex
