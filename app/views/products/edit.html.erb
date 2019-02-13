@@ -1,0 +1,22 @@
+<body class='particles-header'>
+    <div class='col-md-6 col-md-offset-3' align="center">
+        <div class="panel-heading">
+          <h2><b> Update Product</b></h2>
+        </div>
+        <div class="form-group">
+          <%= form_for @product, url: {action: "update"} do |f| %>
+            <%= f.text_field :name, autofocus: true, class: "form-control",  placeholder: "Name" %><br>
+            <%= f.text_field :price, autofocus: true, class: "form-control", placeholder: "Price" %><br>
+            <%= f.text_field :quantity, autofocus: true, class: "form-control", placeholder: "Quantity" %><br>
+            <div class="form-check">
+              <%= f.radio_button(:status, "avail", class:"form-check-input" , checked: true) %>
+              <%= f.label(:status_avail, "Available", class:"form-check-label") %>
+            <div>
+            <br>
+            <p>
+              <%= f.submit "Update Product", :class=>"btn btn-success" %>
+            </p>
+          <% end %>
+        </div>
+    </div>
+</body>

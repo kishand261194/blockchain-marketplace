@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'products/edit'
+
   devise_for :user, :controllers => { registrations: 'registrations' }
   namespace :admin do
     resources :users
