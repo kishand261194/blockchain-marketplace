@@ -1,14 +1,19 @@
 <body class='particles-header'>
 <% @products.in_groups_of(4, false).each do |group| %>
-  <div class='row'>
+  <div class='row',style="background-color: #FFF;color: #9d9d9d;">
     <% group.each do |product| %>
       <div class='col-md-3'>
-        <%= image_tag(product.image_url, class: "img-responsive") %>
-        <h3><%= product.name %></h3>
-        <div><%= sanitize(product.status) %></div>
-        <div><%= number_to_currency(product.price) %></div>
-        <%= button_to 'Add to Cart', products_path, class: 'btn btn-info btn-sm', remote: true %>
+        <div class="card bg-dark text-white" style="width: 14rem;">
+        <%= image_tag(product.images.first.thumb.url.gsub("%5B%22", '').gsub("%22%5D",''), class: "card-img-top") if product.images.any? %>
+        <div class="card-body">
+          <h3><%= product.name %></h3>
+          <div><%= sanitize(product.status) %></div>
+          <div><%= number_to_currency(product.price) %></div>
+          <%= button_to 'Add to Cart', products_path, class: 'btn btn-info btn-sm', remote: true %>
+        </div>
       </div>
+    </div>
     <% end %>
   </div>
+  <br><br><br>
 <% end %>

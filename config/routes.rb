@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'products/edit'
-
   devise_for :user, :controllers => { registrations: 'registrations' }
   namespace :admin do
     resources :users
@@ -9,5 +7,6 @@ Rails.application.routes.draw do
   #devise_for :users
   resources :users
   resources :products
+  get "/mypage" => "products#myindex", as: 'mypage'
   root to: "products#home"
 end

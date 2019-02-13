@@ -15,3 +15,4 @@
 //= require rails-ujs
 //= require_tree .
 //= require bootstrap
+//= require data-confirm-modal

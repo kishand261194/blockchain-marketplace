@@ -11,6 +11,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'pry'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'data-confirm-modal'
 #gem 'bootstrap-sass', '~> 3.3.5'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

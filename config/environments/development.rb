@@ -8,6 +8,7 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  config.serve_static_assets = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -17,14 +18,13 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
-    }
   else
     config.action_controller.perform_caching = false
 
     config.cache_store = :null_store
   end
+  config.public_file_server.enabled = true
+  config.serve_static_files = true 
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

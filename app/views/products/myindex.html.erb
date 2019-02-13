@@ -1,0 +1,20 @@
+<body class='particles-header'>
+<% @products.in_groups_of(4, false).each do |group| %>
+  <div class='row',style="background-color: #FFF;color: #9d9d9d;">
+    <% group.each do |product| %>
+      <div class='col-md-3'>
+        <div class="card bg-dark text-white" style="width: 14rem;">
+        <%= image_tag(product.images.first.thumb.url.gsub("%5B%22", '').gsub("%22%5D",''), class: "card-img-top") if product.images.any? %>
+        <div class="card-body">
+          <h3><%= product.name %></h3>
+          <div><%= sanitize(product.status) %></div>
+          <div><%= number_to_currency(product.price) %></div>
+          <div><%= link_to "Edit", edit_product_path(product), class: "btn btn-primary btn-sm"%>
+          <%= link_to 'Delete', product_path(product), data: {:confirm => 'This action will delete your product.'}, :method => :delete, class: "btn btn-danger btn-sm" %> </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <br><br><br>
+<% end %>
