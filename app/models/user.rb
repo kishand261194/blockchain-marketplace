@@ -3,7 +3,7 @@ class User < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
   devise :timeoutable, :timeout_in => 10.minutes
   has_many :products
-
+  has_many :lineitems
   def set_default_role
     self.role ||= :user
   end

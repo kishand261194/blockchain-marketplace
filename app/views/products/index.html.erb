@@ -10,7 +10,7 @@
           <h3><%= product.name %></h3>
           <div><%= sanitize(product.status) %></div>
           <div><%= number_to_currency(product.price) %></div>
-          <%= button_to 'Add to Cart', products_path, class: 'btn btn-info btn-sm', remote: true %>
+          <%= button_to 'Buy', product_path(product), method: :get, class: 'btn btn-info btn-sm'%>
           <div> Seller - <%= sanitize(product.user.name) %></div>
         </div>
       </div>
