@@ -10,7 +10,7 @@
             <%= f.text_field :quantity, autofocus: true, class: "form-control", placeholder: "Quantity" %><br>
             <%= f.file_field :images, multiple: true %>
             <div class="form-check">
-              <%= f.radio_button(:status, "avail", class:"form-check-input" , checked: true) %>
+              <%= f.radio_button(:status, "Available", class:"form-check-input" , checked: true) %>
               <%= f.label(:status_avail, "Available", class:"form-check-label") %>
             <div>
             <br>

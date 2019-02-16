@@ -8,7 +8,7 @@
         <%= image_tag(lineitem.product.images.first.thumb.url.gsub("%5B%22", '').gsub("%22%5D",''), class: "card-img-top") if lineitem.product.images.any? %>
         <div class="card-body">
           <%= lineitem.product.name %>
-          <div>Quantity: <%= lineitem.total %></div>
+          <div>Quantity: <%= lineitem.quantity %></div>
           <div>Paid: <%= number_to_currency(lineitem.total) %></div>
           <div> Seller: <%= sanitize(lineitem.product.user.name) %></div>
         </div>

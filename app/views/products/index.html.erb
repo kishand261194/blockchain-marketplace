@@ -5,11 +5,12 @@
     <% group.each do |product| %>
       <div class='col-md-3'>
         <div class="card bg-dark text-white" style="width: 14rem;">
+          <div class="badge badge-primary"><%= product.status %></div>
         <%= image_tag(product.images.first.thumb.url.gsub("%5B%22", '').gsub("%22%5D",''), class: "card-img-top") if product.images.any? %>
         <div class="card-body">
           <h3><%= product.name %></h3>
-          <div><%= sanitize(product.status) %></div>
           <div><%= number_to_currency(product.price) %></div>
+          <div>Qty <%= product.quantity %></div>
           <%= button_to 'Buy', product_path(product), method: :get, class: 'btn btn-info btn-sm'%>
           <div> Seller - <%= sanitize(product.user.name) %></div>
         </div>

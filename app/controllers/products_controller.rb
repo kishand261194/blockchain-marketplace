@@ -43,6 +43,7 @@ class ProductsController < ApplicationController
       redirect_to products_path
     rescue => e
       flash[:danger] = e.message
+      redirect_to products_path
     end
   end
 
