@@ -5,7 +5,11 @@
     <% group.each do |product| %>
       <div class='col-md-3'>
         <div class="card bg-dark text-white" style="width: 14rem;">
-          <div class="badge badge-primary"><%= product.status %></div>
+          <% if product.status == 'Sold' %>
+            <div class="badge badge-danger"><%= product.status %></div>
+          <% else %>
+            <div class="badge badge-success"><%= product.status %></div>
+          <%end%>
         <%= image_tag(product.images.first.thumb.url.gsub("%5B%22", '').gsub("%22%5D",''), class: "card-img-top") if product.images.any? %>
         <div class="card-body">
           <h3><%= product.name %></h3>

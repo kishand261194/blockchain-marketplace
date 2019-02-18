@@ -11,11 +11,11 @@ class User < ApplicationRecord
   end
 
   def credit amount
-    self.increment!(:balance, amount)
+    self.update_attribute(:balance, self.balance-amount)
   end
 
   def debit amount
-    self.decrement!(:balance, amount)
+    self.update_attribute(:balance, self.balance+amount)
   end
 
   # Include default devise modules. Others available are:
