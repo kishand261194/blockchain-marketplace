@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   enum role: [:user, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  before_validation :set_default_balance
   validates_numericality_of :balance, greater_than_or_equal_to: 0
   devise :timeoutable, :timeout_in => 10.minutes
   has_many :products
@@ -10,6 +11,10 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
+  def set_default_balance
+    self.balance = 0 if self.balance.nil?
+  end
+  
   def credit amount
     self.update_attribute(:balance, self.balance-amount)
   end

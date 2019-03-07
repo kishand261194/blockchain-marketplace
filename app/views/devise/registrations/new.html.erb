@@ -1,7 +1,7 @@
 <body class='particles-header'>
 <div class="authform">
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3>Sign up</h3>
+    <h3>Add New User</h3>
     <%= devise_error_messages! %>
     <div class="form-group">
       <%= f.label :name %>
@@ -19,7 +19,11 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
-     <%= f.submit 'Sign up', :class => 'button right' %>
+    <div class="form-group">
+      <%= f.label :balance %>
+      <%= f.number_field :balance, class: 'form-control' %>
+    </div>
+     <%= f.submit 'Add', :class => 'button right' %>
   <% end %>
 </div>
 </body>
