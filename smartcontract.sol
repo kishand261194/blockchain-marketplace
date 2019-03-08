@@ -1,4 +1,4 @@
-pragma solidity >=0.5;
+pragma solidity >=0.5.0;
 contract Marketplace {
 
     struct User {
@@ -32,7 +32,10 @@ contract Marketplace {
         require(msg.sender == chairperson);
          /// User must be active
         require(users[user].active);
+        //We just make the user inactive
         users[user].active = false;
+        // Ideally shd return back the balance to the chain. As we currently cant
+        // do this, I am just making the balance zero
         users[user].balance = 0;
     }
 
@@ -51,7 +54,15 @@ contract Marketplace {
         users[msg.sender].balance+=amount;
     }
 
-    function buy(bytes32 data) public {
+    function deluser(address user) public {
+      /// Only chairperson is allowed to unregister users
+      require(msg.sender == chairperson);
+      delete users[user];
+    }
+
+    function buy(uint amount, bytes32 data) public {
+      require(users[msg.sender].active);
+      require(users[msg.sender].balance >= amount);
       hashData[msg.sender]=data;
     }
 

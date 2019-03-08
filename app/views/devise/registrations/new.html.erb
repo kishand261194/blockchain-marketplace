@@ -1,5 +1,6 @@
 <body class='particles-header'>
 <div class="authform">
+  <%= link_to 'Manage all users', admin_root_path, class: 'button' %><br><br>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
     <h3>Add New User</h3>
     <%= devise_error_messages! %>
